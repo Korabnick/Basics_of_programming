@@ -1,7 +1,5 @@
-lower_s = 0
-lower_c = 0
-super_s = 0
-super_c = 0
+lower_s, lower_c = 0, 0
+super_s, super_c = 0, 0
 strings = 'som eBO DYo nce TOL Dme'
 print('Strings: ' + strings)
 strings = strings.split()
@@ -20,7 +18,7 @@ for substr in strings:
         lower_s += 1
     print (super_c,lower_c)
 
-one = super_s/string_len * 100
-two = lower_s/string_len * 100
+one = round(super_s/string_len * 100)
+two = round(lower_s/string_len * 100)
 
 print("Заглавных букв: {0}%, Строчных букв: {1}%".format(int(one),int(two)))
