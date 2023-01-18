@@ -25,6 +25,8 @@ class Philosopher(Process):
                 l_ac = self.l_cs.acquire(timeout=Philosopher.TIMEOUT)
                 if l_ac:
                     print('Философ {} взял левую палочку'.format(self.name))
+                else:
+                    r_ac.release()
 
                 if l_ac and r_ac:
                     self.eat()
@@ -33,8 +35,6 @@ class Philosopher(Process):
                     self.l_cs.release()
                     sleep(randint(*Philosopher.THINK))
                     print('Философ {} прекратил думать, т.к. проголодался'.format(self.name))
-                else:
-                    print('Философ {} думает'.format(self.name))
             
 PHILOSOPHERS = 5
     
